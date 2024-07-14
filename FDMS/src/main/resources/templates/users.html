@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Stylesheets -->
+    <link th:href="@{/css/vendors.css}" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>FDMS</title>
+</head>
+
+<body data-barba="wrapper">
+
+<div class="preloader js-preloader">
+
+</div>
+
+<div class="header-margin"></div>
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
+
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+    <div id="dashboardMain" class="dashboard__main">
+        <div class="dashboard__content">
+            <div class="row y-gap-20 justify-between items-end pb-20 lg:pb-40 md:pb-32">
+                <div class="col-auto">
+
+                    <h1 class="text-30 lh-14 fw-600">All Users</h1>
+                    <div class="text-15 text-light-1">Lorem ipsum dolor sit amet, consectetur.</div>
+
+                </div>
+
+                <div class="col-auto">
+
+                </div>
+            </div>
+
+
+            <div class="py-30 px-30 rounded-4 bg-white custom_shadow">
+                <div class="tabs -underline-2 js-tabs">
+                    <div class="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 js-tabs-controls">
+
+                        <div class="col-auto d-flex align-items-center">
+                            <div class="col-auto d-flex align-items-center">
+                                <button class="tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 js-tabs-button is-tab-el-active"
+                                        data-tab-target=".-tab-item-1">All User
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3 form-input row">
+
+
+                            <div class="col-md-4">
+                                <form th:action="@{/user/search}">
+                                    <input name="query" type="text" class="form-control" placeholder="Type name to search ..." aria-label="Type to search" aria-describedby="basic-addon2">
+                                </form>
+                            </div>
+
+<!--                            <div class="input-group-append col-md-2">-->
+<!--                                <button class="btn btn-outline-warning" style="width: 12rem;" type="button">Filter</button>-->
+<!--                            </div>-->
+
+
+                        </div>
+                    </div>
+
+                    <div class="tabs__content pt-30 js-tabs-content">
+
+                        <div class="tabs__pane -tab-item-1 is-tab-el-active">
+                            <div class="overflow-scroll scroll-bar-1">
+                                <table class="table-4 -border-bottom col-12">
+                                    <thead class="bg-light-2">
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>Email</th>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Phone</th>
+                                        <th>Building</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody th:each="user1:${user}">
+                                    <tr>
+                                        <td th:text="${user1.userEntity.getId()}" >
+
+                                        </td>
+                                        <td th:text="${user1.userEntity.getEmail()}"></td>
+                                        <td th:text="${user1.userEntity.getFullName()}"></td>
+                                        <td th:text="${user1.userEntity.getGender()}"></td>
+                                        <td th:text="${user1.userEntity.getPhone()}"></td>
+                                        <td th:text="${user1.building.getBuildingname()}"></td>
+                                        <td><span
+                                                class="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-yellow-4 text-yellow-3" th:text="${user1.userEntity.getStatus()}"></span>
+                                        </td>
+                                        <td>
+                                            <div class="row x-gap-10 y-gap-10 items-center">
+
+                                                <div class="col-auto">
+                                                    <button data-toggle="modal" data-target="#edit"
+                                                            class="flex-center bg-light-2 rounded-4 size-35">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button data-toggle="modal" data-target="#delete"
+                                                            class="flex-center bg-light-2 rounded-4 size-35">
+                                                        <i class="fa-solid fa-circle-check"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="modal fade" id="delete" tabindex="-1" role="dialog"
+                                                     aria-labelledby="deleteLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="deleteLabel">Active
+                                                                    user</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Are you sure to active this user?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Cancel
+                                                                </button>
+                                                                <a th:href="@{/user/{userId}/active(userId=${user1.userEntity.getId()})}">
+                                                                    <button type="button" class="btn btn-primary">Active
+                                                                    </button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-auto">
+                    <div class="row x-gap-20 y-gap-20 items-center">
+                        <div class="col-auto">
+
+                            <a th:if="${currentPage > 0}" th:href="@{/user(page=${currentPage - 1})}">
+                                <div class="size-40 flex-center rounded-full">Previous</div>
+                            </a>
+                        </div>
+                        <div class="col-auto" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                            <div th:if="${i == 1 or i == totalPages or (i >= currentPage - 2 and i <= currentPage + 2)}">
+                                <a th:if="${currentPage != i - 1}" th:href="@{/user(page=${i - 1})}">
+                                    <div class="size-40 flex-center rounded-full" th:text="${i}">1</div>
+                                </a>
+                                <div th:if="${currentPage == i - 1}"
+                                     class="size-40 flex-center rounded-full bg-dark-1 text-white" th:text="${i}">1
+                                </div>
+                            </div>
+                            <div th:if="${i == 2 and currentPage > 3}">
+                                <div class="size-40 flex-center rounded-full">...</div>
+                            </div>
+                            <div th:if="${i == totalPages - 1 and currentPage < totalPages - 3}">
+                                <div class="size-40 flex-center rounded-full">...</div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <a th:if="${currentPage < totalPages - 1}" th:href="@{/user(page=${currentPage + 1})}">
+                                <div class="size-40 flex-center rounded-full">Next</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-auto"></div>
+            </div>
+
+
+            <footer class="footer -dashboard mt-60">
+                <div class="footer__row row y-gap-10 items-center justify-between">
+                    <div class="col-auto">
+                        <div class="row y-gap-20 items-center">
+                            <div class="col-auto">
+                                <div class="text-14 lh-14 mr-30">Copyright © 2022 All Rights Reserved</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="d-flex x-gap-5 y-gap-5 items-center">
+                            <img src="/img/avatars/card.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/vendors.js}"></script>
+
+</body>
+
+</html>

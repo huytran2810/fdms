@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4ed1dcc7-501d-4f78-a7a7-2797f8abaea6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/css/vendors.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/fonts/icomoonf78a.eot@ibiouq" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/fonts/icomoonf78a.svg@ibiouq" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/fonts/icomoonf78a.ttf@ibiouq" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/fonts/icomoonf78a.woff@ibiouq" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/avatars/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/avatars/add-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/avatars/add-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/avatars/card.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/dashboard/icons/arrow-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/dashboard/icons/arrow-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/dashboard/icons/arrow-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/dashboard/icons/arrow-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/img/general/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/js/chart.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/js/vendors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/templates/fragment/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/templates/fragment/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FDMS/src/main/resources/templates/fragment/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FDMS/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/FDMS/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FDMS/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/FDMS/src/main/resources/templates/home.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;minhtruongthon123&quot;,
+      &quot;fullname&quot;: &quot;minhtruongthon123&quot;
+    }
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2grPAyGqcI6hwpdMamc1xLEsFB6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JavaScript Debug.home.html.executor": "Debug",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "minhnd",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/G6/FDMS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\G6\FDMS\src\main\resources\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\G6\FDMS\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="home.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/G6/FDMS/src/main/resources/templates/home.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.home.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ed1dcc7-501d-4f78-a7a7-2797f8abaea6" name="Changes" comment="" />
+      <created>1716452585085</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716452585085</updated>
+      <workItem from="1716452588701" duration="31000" />
+      <workItem from="1717086959153" duration="5147000" />
+      <workItem from="1717092208951" duration="608000" />
+      <workItem from="1717165786395" duration="307000" />
+      <workItem from="1717166530252" duration="210000" />
+      <workItem from="1717238629751" duration="943000" />
+      <workItem from="1717251855660" duration="346000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

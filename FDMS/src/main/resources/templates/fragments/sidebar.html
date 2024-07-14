@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sidebar">
+    <div id="dashboardSidebar" class="dashboard__sidebar bg-white scroll-bar-1">
+        <div class="sidebar -dashboard">
+            <div class="sidebar__item">
+                <div class="sidebar__button -is-active">
+                    <a href="#" class="d-flex items-center text-15 lh-1 fw-500">
+                        <i class="fas fa-border-all mr-15"></i>
+                        Dashboard
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar__item ">
+                <div class="accordion -db-sidebar js-accordion">
+                    <div class="accordion__item">
+                        <div class="accordion__button">
+                            <div id="manageBuildingButton" class="sidebar__button col-12 d-flex items-center justify-between">
+                                <div sec:authorize="hasRole('ADMIN')"  class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-building mr-15"></i>
+                                    Manage Building
+                                </div>
+                                <div sec:authorize="hasRole('STUDENT')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-building mr-15"></i>
+                                    Building
+                                </div>
+                                <div sec:authorize="hasRole('MANAGER')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-building mr-15"></i>
+                                    Building
+                                </div>
+                                <div class="icon-chevron-sm-down text-7"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__content" id="buildingContent">
+                            <ul class="list-disc pb-5 pl-40">
+                                <li>
+                                    <a href="/building" class="text-15">All buildings</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item ">
+                <div class="accordion -db-sidebar js-accordion">
+                    <div class="accordion__item">
+                        <div class="accordion__button">
+                            <div class="sidebar__button col-12 d-flex items-center justify-between">
+                                <div sec:authorize="hasRole('ADMIN')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-ticket-alt mr-15"></i> Manage Room
+                                </div>
+                                <div sec:authorize="hasRole('MANAGER')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-ticket-alt mr-15"></i>
+                                    Room
+                                </div>
+                                <div sec:authorize="hasRole('STUDENT')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-ticket-alt mr-15"></i> Room
+                                </div>
+                                <div class="icon-chevron-sm-down text-7"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__content">
+                            <ul class="list-disc pb-5 pl-40">
+
+                                <li>
+                                    <a href="/room" class="text-15">All rooms</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item ">
+                <div class="accordion -db-sidebar js-accordion">
+                    <div class="accordion__item">
+                        <div class="accordion__button">
+                            <div class="sidebar__button col-12 d-flex items-center justify-between">
+                                <div sec:authorize="hasRole('ADMIN')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fa-solid fa-bed mr-15"></i>
+                                    Manage Bed
+                                </div>
+                                <div sec:authorize="hasRole('MANAGER')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fa-solid fa-bed mr-15"></i>
+                                    Bed
+                                </div>
+                                <div sec:authorize="hasRole('STUDENT')" class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fa-solid fa-bed mr-15"></i>
+                                    Bed
+                                </div>
+                                <div class="icon-chevron-sm-down text-7"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__content">
+                            <ul class="list-disc pb-5 pl-40">
+
+                                <li>
+                                    <a href="/bed/available" class="text-15">All bed</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar__item ">
+                <div class="accordion -db-sidebar js-accordion">
+                    <div class="accordion__item">
+                        <div class="accordion__button">
+                            <div class="sidebar__button col-12 d-flex items-center justify-between">
+                                <div class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-book t mr-15"></i>
+                                    News
+                                </div>
+                                <div class="icon-chevron-sm-down text-7"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__content">
+                            <ul class="list-disc pb-5 pl-40">
+                                <li>
+                                    <a href="/news" class="text-15">All news</a>
+                                </li>
+                                <li sec:authorize="hasRole('ADMIN')">
+                                    <a href="/admin/news/create" class="text-15">Add news</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item">
+                <div class="sidebar__button">
+                    <a th:href="@{/request}" class="d-flex items-center text-15 lh-1 fw-500">
+                        <i class="far fa-paper-plane mr-15"></i>
+                        All Request
+                    </a>
+                </div>
+            </div>
+
+            <div sec:authorize="hasAnyRole('ADMIN','STUDENT')" class="sidebar__item ">
+                <div class="accordion -db-sidebar js-accordion">
+                    <div class="accordion__content">
+                        <div class="accordion__button">
+                            <div class="sidebar__button col-12 d-flex items-center justify-between">
+                                <div class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-wallet mr-15"></i>
+                                    Payment
+                                </div>
+                                <div class="icon-chevron-sm-down text-7"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__content">
+                            <ul class="list-disc pb-5 pl-40">
+
+                                <li>
+                                    <a href="/payments/history" class="text-15">Payment information</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-15">Add payment method</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div sec:authorize="hasRole('ADMIN')" class="sidebar__item ">
+                <div class="accordion -db-sidebar js-accordion">
+                    <div class="accordion__item">
+                        <div class="accordion__button">
+                            <div class="sidebar__button col-12 d-flex items-center justify-between">
+                                <div class="d-flex items-center text-15 lh-1 fw-500">
+                                    <i class="fas fa-user-cog mr-15"></i>
+                                    User manage
+                                </div>
+                                <div class="icon-chevron-sm-down text-7"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__content">
+                            <ul class="list-disc pb-5 pl-40">
+                                <li>
+                                    <a href="/admin/manager-list" class="text-15">All managers</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/student-list" class="text-15">All students</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item">
+                <div class="sidebar__button ">
+                    <a href="/logout" class="d-flex items-center text-15 lh-1 fw-500">
+                        <i class="fas fa-sign-out-alt mr-15"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

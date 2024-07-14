@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Stylesheets -->
+    <link th:href="@{/css/vendors.css}" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
+    <title>FDMS</title>
+</head>
+
+<body data-barba="wrapper">
+
+<div class="preloader js-preloader">
+
+</div>
+
+<div class="header-margin"></div>
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
+
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+    <div id="dashboardMain" class="dashboard__main">
+        <div class="dashboard__content">
+            <div class="row y-gap-20 justify-between items-end pb-20 lg:pb-40 md:pb-32">
+                <div class="col-auto">
+                    <h1 class="text-30 lh-14 fw-500">Dashboard</h1>
+                    <div class="text-15 text-light-1">Lorem ipsum dolor sit amet, consectetur.</div>
+                </div>
+
+                <div class="col-auto">
+
+                </div>
+            </div>
+
+            <div class="row y-gap-30">
+
+                <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                    <div class="py-15 px-15 custom_border_left_blue custom_rounded bg-white custom_shadow">
+                        <div class="row y-gap-20 justify-between items-center">
+                            <div class="col-md-6">
+                                <div class="fw-500 lh-14">Total buildings</div>
+                                <div class="text-30 lh-16 fw-600 mt-5 text_blue">$12,800</div>
+                                <div class="text-15 lh-14 text-light-1 mt-5 text_green">(+2.35%) <span><i
+                                        class="fas fa-arrow-up"></i></span></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <img src="/img/dashboard/icons/arrow-1.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                    <div class="py-15 px-30 custom_border_left_oreng custom_rounded bg-white custom_shadow">
+                        <div class="row y-gap-20 justify-between items-center">
+                            <div class="col-md-6">
+                                <div class="fw-500 lh-14">Total room</div>
+                                <div class="text-30 lh-16 fw-600 mt-5 text_oreng">$14,200</div>
+                                <div class="text-15 lh-14 text-light-1 mt-5 text_green">(+2.35%) <span><i
+                                        class="fas fa-arrow-up"></i></span></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <img src="/img/dashboard/icons/arrow-2.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                    <div class="py-15 px-30 custom_border_left_sky custom_rounded bg-white custom_shadow">
+                        <div class="row y-gap-20 justify-between items-center">
+                            <div class="col-md-6">
+                                <div class="fw-500 lh-14">Total bed</div>
+                                <div class="text-30 lh-16 fw-600 mt-5 text_sky">$8,100</div>
+                                <div class="text-15 lh-14 text-light-1 mt-5 text_red">(+2.35%) <span><i
+                                        class="fas fa-arrow-up"></i></span></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <img src="/img/dashboard/icons/arrow-3.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                    <div class="py-15 px-30 custom_border_left_green custom_rounded bg-white custom_shadow">
+                        <div class="row y-gap-20 justify-between items-center">
+                            <div class="col-md-6">
+                                <div class="fw-500 lh-14">Total request</div>
+                                <div class="text-30 lh-16 fw-600 mt-5 text_green">22,786</div>
+                                <div class="text-15 lh-14 text-light-1 mt-5 text_green">(+2.35%) <span><i
+                                        class="fas fa-arrow-up"></i></span></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <img src="/img/dashboard/icons/arrow-4.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <footer class="footer -dashboard mt-60">
+                <div class="footer__row row y-gap-10 items-center justify-between">
+                    <div class="col-auto">
+                        <div class="row y-gap-20 items-center">
+                            <div class="col-auto">
+                                <div class="text-14 lh-14 mr-30">Copyright © 2022 All Rights Reserved</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex x-gap-5 y-gap-5 items-center">
+                            <img src="/img/avatars/card.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/vendors.js}"></script>
+
+</body>
+
+</html>

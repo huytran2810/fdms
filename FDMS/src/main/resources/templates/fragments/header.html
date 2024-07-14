@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="header">
+    <header data-add-bg="" class="header -dashboard bg-white js-header" data-x="header" data-x-toggle="is-menu-opened">
+        <div class="header__container px-30 sm:px-20">
+            <div class="-left-side">
+                <a href="/home" class="header-logo" data-x="header-logo" data-x-toggle="is-logo-dark">
+                    <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/FPT_Education_logo.svg/2560px-FPT_Education_logo.svg.png"
+                            alt="logo icon">
+                    <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/FPT_Education_logo.svg/2560px-FPT_Education_logo.svg.png"
+                            alt="logo icon">
+                </a>
+            </div>
+
+            <div class="row justify-between items-center pl-60 lg:pl-20">
+                <div class="col-auto">
+                    <div class="d-flex items-center">
+                        <button id="toggleSidebarButton" data-x-click="dashboard">
+                            <div style="width: 35px;
+            height: 5px;
+            background-color: #f2721e;
+            margin: 6px 0;"></div>
+                            <div style="width: 35px;
+            height: 5px;
+            background-color: #f2721e;
+            margin: 6px 0;"></div>
+                            <div style="width: 35px;
+              height: 5px;
+              background-color: #f2721e;
+              margin: 6px 0;"></div>
+                        </button>
+
+                        <div class="single-field relative d-flex items-center md:d-none ml-30">
+                            <label>
+                                <input class="pl-50 border-light text-dark-1 h-50 rounded-8" type="email"
+                                       placeholder="Search">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-auto">
+                    <div class="d-flex items-center">
+
+                        <div class="pl-15">
+                            <a href="/user/profile"><img src="/img/avatars/3.png" alt="image" class="size-50 rounded-22 object-cover"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+</body>
+</html>

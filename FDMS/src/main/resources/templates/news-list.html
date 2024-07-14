@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Stylesheets -->
+    <link th:href="@{/css/vendors.css}" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>FDMS</title>
+</head>
+
+<body data-barba="wrapper">
+
+<div class="preloader js-preloader">
+
+</div>
+
+<div class="header-margin"></div>
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
+
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+    <div id="dashboardMain" class="dashboard__main">
+        <div class="dashboard__content">
+            <div class="row y-gap-20 justify-between items-end pb-20 lg:pb-40 md:pb-32">
+                <div class="col-auto">
+
+                    <h1 class="text-30 lh-14 fw-600">News</h1>
+                    <div class="text-15 text-light-1">Lorem ipsum dolor sit amet, consectetur.</div>
+
+                </div>
+
+                <div class="col-auto">
+
+                </div>
+            </div>
+
+
+            <div class="py-30 px-30 rounded-4 bg-white custom_shadow">
+                <div class="tabs -underline-2 js-tabs">
+                    <div class="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 js-tabs-controls">
+
+                        <div class="col-auto d-flex align-items-center">
+                            <div class="input-group mb-1 form-input">
+                                <input type="text" class="form-control" placeholder="Type to search ..." aria-label="Type to search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-warning" type="button">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabs__content pt-30 js-tabs-content">
+
+                        <div class="tabs__pane -tab-item-1 is-tab-el-active">
+                            <div class="overflow-scroll scroll-bar-1">
+                                <div class="flex flex-wrap row-cols-md-2 SN-news-container row">
+                                    <div th:each="news :${allnews}" class="col-md-6 mb-3">
+                                        <div class="SN-news flex-1">
+                                            <div class="SN-date" style="display: flex">
+                                                <div th:text="${#temporals.format(news.updatedAt, 'dd/MM/yyyy HH:mm')}">
+
+                                                </div>
+                                                <div sec:authorize="hasRole('ADMIN')">
+                                                    <div class="col-auto" >
+                                                        <a>
+                                                        <button data-toggle="modal" style="margin-left: 16rem;" class="flex-center bg-light-2 rounded-4 size-35 action-icon-btn"
+                                                                th:data-news-id="${news.id}">
+                                                            <span>
+                                                                <i class="fa-solid fa-trash"></i>
+                                                            </span>
+                                                        </button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div>
+
+                                            </div>
+                                            <a th:href="@{/news/{newsId}/detail(newsId=${news.getId()})}">
+                                                <div class="SN-news-title" th:text="${news.title}">
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-auto">
+                    <div class="row x-gap-20 y-gap-20 items-center">
+                        <div class="col-auto">
+
+                            <a th:if="${currentPage > 0}" th:href="@{/news(page=${currentPage - 1})}">
+                                <div class="size-40 flex-center rounded-full">Previous</div>
+                            </a>
+                        </div>
+                        <div class="col-auto" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                            <div th:if="${i == 1 or i == totalPages or (i >= currentPage - 2 and i <= currentPage + 2)}">
+                                <a th:if="${currentPage != i - 1}" th:href="@{/news(page=${i - 1})}">
+                                    <div class="size-40 flex-center rounded-full" th:text="${i}">1</div>
+                                </a>
+                                <div th:if="${currentPage == i - 1}"
+                                     class="size-40 flex-center rounded-full bg-dark-1 text-white" th:text="${i}">1
+                                </div>
+                            </div>
+                            <div th:if="${i == 2 and currentPage > 3}">
+                                <div class="size-40 flex-center rounded-full">...</div>
+                            </div>
+                            <div th:if="${i == totalPages - 1 and currentPage < totalPages - 3}">
+                                <div class="size-40 flex-center rounded-full">...</div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <a th:if="${currentPage < totalPages - 1}" th:href="@{/news(page=${currentPage + 1})}">
+                                <div class="size-40 flex-center rounded-full">Next</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-auto"></div>
+            </div>
+
+
+            <footer class="footer -dashboard mt-60">
+                <div class="footer__row row y-gap-10 items-center justify-between">
+                    <div class="col-auto">
+                        <div class="row y-gap-20 items-center">
+                            <div class="col-auto">
+                                <div class="text-14 lh-14 mr-30">Copyright © 2022 All Rights Reserved</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="d-flex x-gap-5 y-gap-5 items-center">
+                            <img src="./img/avatars/card.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/vendors.js}"></script>
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.action-icon-btn', function() {
+            let newsId = $(this).data('news-id');
+            let actionText ='Delete';
+            let confirmMessage = 'Delete this News?';
+
+            // Show SweetAlert warning dialog
+            swal.fire({
+                title: actionText + ' News',
+                text: confirmMessage,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc3545', // Bootstrap danger color
+                cancelButtonColor: '#6c757d', // Bootstrap secondary color
+                confirmButtonText: actionText,
+                cancelButtonText: 'Cancel',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: `/admin/news/${newsId}/delete`,
+                        success: function(response) {
+                            swal.fire({
+                                title: 'Success',
+                                text: response,
+                                icon: 'success'
+                            }).then(() => {
+                                location.reload(); // Reload page after action
+                            });
+                        },
+                        error: function(xhr) {
+                            swal.fire({
+                                title: 'Error',
+                                text: xhr.responseText,
+                                icon: 'error'
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

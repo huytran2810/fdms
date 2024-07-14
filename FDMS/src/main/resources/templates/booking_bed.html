@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Stylesheets -->
+    <link th:href="@{/css/vendors.css}" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>FDMS</title>
+</head>
+
+<body data-barba="wrapper">
+
+<div class="preloader js-preloader">
+
+</div>
+
+<div class="header-margin"></div>
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
+
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+    <div id="dashboardMain" class="dashboard__main">
+        <div class="dashboard__content">
+
+
+            <div class="row y-gap-20 justify-between items-end pb-20 lg:pb-40 md:pb-32">
+                <div class="col-auto">
+
+                    <h1 class="text-30 lh-14 fw-600">Booking bed</h1>
+                    <div class="text-15 text-light-1">Lorem ipsum dolor sit amet, consectetur.</div>
+
+                </div>
+
+                <div class="col-auto">
+
+                </div>
+            </div>
+            <div th:if="${error}" class="alert alert-danger">
+                <p th:text="${error}"></p>
+            </div>
+            <form th:action="@{/booking}" method="post">
+                <div class="py-30 px-30 rounded-4 bg-white custom_shadow">
+                    <div class="tabs -underline-2 js-tabs">
+                        <div class="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 js-tabs-controls">
+
+                            <div class="col-auto">
+                                <button
+                                        class="tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 js-tabs-button is-tab-el-active"
+                                        data-tab-target=".-tab-item-1">Booking information</button>
+                            </div>
+                        </div>
+
+                        <div class="tabs__content pt-30 js-tabs-content">
+                            <div class="tabs__pane -tab-item-1 is-tab-el-active">
+                                <div class="col-xl-10">
+                                    <div class="border-top-light mt-30 mb-30"></div>
+                                    <div class="row x-gap-20 y-gap-20">
+                                        <div class="col-6">
+                                            <div class="form-input ">
+                                                <a th:href="@{/bed/available}"> <input value="See available beds" disabled style="margin-top: 2.6rem;" class="lh-1 text-16 bg-warning-1 text-light-1"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-input ">
+                                                <label class="lh-1 text-16 text-light-1">Building</label>
+                                                <div class="form-input ">
+                                                    <input readonly class="lh-1 text-16 text-light-1 mt-2" th:value="${room.building.getBuildingname()}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-input ">
+                                                <label class="lh-1 text-16 text-light-1">RoomType</label>
+                                                <div class="form-input ">
+                                                    <input readonly class="lh-1 text-16 text-light-1 mt-2" th:value="${room.room_type_desciption}">
+                                                    <input hidden="" name="roomId" th:value="${room.id}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-input ">
+                                                <label class="lh-1 text-16 text-light-1">Floor</label>
+                                                <div class="form-input ">
+                                                    <input readonly class="lh-1 text-16 text-light-1 mt-2" th:value="${room.floor}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-input ">
+                                                <label class="lh-1 text-16 text-light-1">Semester</label>
+                                                <select name="semesterId" required>
+                                                    <option value="" disabled selected>Select a Semester</option>
+                                                    <option th:each="semester : ${semesters}"
+                                                            th:value="${semester.id}"
+                                                            th:text="${semester.semesterName}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="lh-1 text-16 text-light-1">Price</label>
+                                            <div class="form-input ">
+                                                <input readonly class="lh-1 text-16 text-light-1 mt-2" th:value="${room.price}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-input">
+                                                <label class="lh-1 text-16 text-light-1">Bed</label>
+                                                <select required name="bedId" th:readonly="${bedId != null}">
+                                                    <option value="" disabled>Select a bed</option>
+                                                    <option th:each="bed : ${beds}"
+                                                            th:value="${bed.id}"
+                                                            th:text="${bed.bedName}"
+                                                            th:selected="${bed.id == bedId}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="d-inline-block pt-30">
+                                    <button type="submit" class="button h-50 px-24 -dark-1 bg-blue-1 text-white ml-3">
+                                        Book Request
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <footer class="footer -dashboard mt-60">
+                <div class="footer__row row y-gap-10 items-center justify-between">
+                    <div class="col-auto">
+                        <div class="row y-gap-20 items-center">
+                            <div class="col-auto">
+                                <div class="text-14 lh-14 mr-30">Copyright © 2022 All Rights Reserved</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="d-flex x-gap-5 y-gap-5 items-center">
+                            <img src="./img/avatars/card.png" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/vendors.js}"></script>
+
+</body>
+
+</html>
